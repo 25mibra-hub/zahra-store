@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>زهرة | منتجات طبيعية</title>
+<meta name="description" content="متجر زهرة للمنتجات الطبيعية - صابون طبيعي، عناية بالبشرة والشعر والجسم، معطرات وعطور. اطلب عبر واتساب.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#3d7a5e; --green-dark:#2c5c46; --green-soft:#e8f2ec;
+  --ink:#2b2622; --muted:#8a8078; --bg:#f7f3ee; --card:#ffffff;
+  --line:#e9e1d8; --accent:#c2807a; --shadow:0 6px 24px rgba(60,45,35,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);padding-bottom:96px}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(247,243,238,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header-inner{max-width:1080px;margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.25rem;color:var(--green-dark);white-space:nowrap}
+.brand small{display:block;font-size:.65rem;font-weight:500;color:var(--muted)}
+.search{flex:1;display:flex;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px;gap:8px;min-width:0}
+.search input{border:none;outline:none;background:none;flex:1;font-family:inherit;font-size:.95rem;min-width:0}
+.cart-btn{position:relative;width:44px;height:44px;border-radius:14px;background:var(--green);color:#fff;display:grid;place-items:center;flex-shrink:0}
+.cart-count{position:absolute;top:-6px;left:-6px;background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;min-width:20px;height:20px;border-radius:999px;display:grid;place-items:center;padding:0 5px}
+.cart-count.zero{display:none}
+
+/* Hero */
+.hero{max-width:1080px;margin:16px auto 0;padding:0 16px}
+.hero-card{border-radius:22px;overflow:hidden;position:relative;box-shadow:var(--shadow);min-height:150px;display:flex;align-items:flex-end;background:linear-gradient(135deg,#3d7a5e,#6fa287)}
+.hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.hero-text{position:relative;padding:20px 22px;color:#fff}
+.hero-text h1{font-size:1.4rem;font-weight:800}
+.hero-text p{font-size:.9rem;opacity:.92;margin-top:4px}
+
+/* Categories */
+.cats{position:sticky;top:65px;z-index:40;background:rgba(247,243,238,.92);backdrop-filter:blur(12px);padding:10px 0}
+.cats-inner{max-width:1080px;margin:auto;display:flex;gap:8px;overflow-x:auto;padding:2px 16px;scrollbar-width:none}
+.cats-inner::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;padding:7px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.85rem;font-weight:500;color:var(--muted);transition:.15s}
+.chip.active{background:var(--green);border-color:var(--green);color:#fff;font-weight:700}
+
+/* Grid */
+main{max-width:1080px;margin:auto;padding:8px 16px}
+.cat-title{font-size:1.1rem;font-weight:800;color:var(--green-dark);margin:22px 0 12px;display:flex;align-items:center;gap:8px}
+.cat-title::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card-img{aspect-ratio:1;overflow:hidden;background:#efe9e2}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card-name{font-size:.88rem;font-weight:700;line-height:1.4}
+.card-detail{font-size:.72rem;color:var(--muted)}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.price{font-weight:800;color:var(--green-dark);font-size:.95rem;white-space:nowrap}
+.add-btn{background:var(--green-soft);color:var(--green-dark);font-weight:700;font-size:.78rem;padding:7px 12px;border-radius:999px;transition:.15s;white-space:nowrap}
+.add-btn:active{transform:scale(.95)}
+.stepper{display:flex;align-items:center;gap:2px;background:var(--green-soft);border-radius:999px;padding:2px}
+.stepper button{width:26px;height:26px;border-radius:999px;font-size:1rem;font-weight:800;color:var(--green-dark);display:grid;place-items:center}
+.stepper span{min-width:22px;text-align:center;font-weight:800;font-size:.85rem;color:var(--green-dark)}
+.empty-msg{text-align:center;color:var(--muted);padding:48px 0;font-size:.95rem}
+
+/* Info strip */
+.info{max-width:1080px;margin:28px auto 0;padding:0 16px}
+.info-card{background:var(--green-soft);border-radius:18px;padding:16px 18px;font-size:.85rem;line-height:1.9;color:var(--green-dark)}
+
+/* Footer */
+footer{margin-top:28px;border-top:1px solid var(--line);padding:24px 16px 12px;text-align:center;color:var(--muted);font-size:.82rem}
+footer .links{display:flex;justify-content:center;gap:16px;margin-bottom:10px}
+footer a{color:var(--green-dark);text-decoration:none;font-weight:700}
+
+/* Cart drawer */
+.overlay{position:fixed;inset:0;background:rgba(30,25,20,.45);opacity:0;pointer-events:none;transition:.25s;z-index:90}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(420px,94vw);background:var(--bg);z-index:100;transform:translateX(-105%);transition:transform .3s ease;display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line);background:var(--card)}
+.drawer-head h2{font-size:1.05rem;font-weight:800;color:var(--green-dark)}
+.drawer-body{flex:1;overflow-y:auto;padding:14px 16px}
+.cart-item{display:flex;gap:10px;background:var(--card);border-radius:14px;padding:10px;margin-bottom:10px;align-items:center}
+.cart-item img{width:56px;height:56px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-size:.82rem;font-weight:700;line-height:1.35}
+.ci-price{font-size:.78rem;color:var(--muted);margin-top:2px}
+.ci-side{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.ci-total{font-weight:800;font-size:.85rem;color:var(--green-dark);white-space:nowrap}
+.ci-remove{font-size:.7rem;color:var(--accent)}
+.drawer-foot{border-top:1px solid var(--line);background:var(--card);padding:14px 16px}
+.subtotal{display:flex;justify-content:space-between;font-weight:800;font-size:1rem;margin-bottom:4px}
+.ship-note{font-size:.75rem;color:var(--muted);margin-bottom:12px;line-height:1.7}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:.78rem;font-weight:700;margin-bottom:4px;color:var(--ink)}
+.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-family:inherit;font-size:.9rem;background:var(--bg);outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--green)}
+.checkout-btn{width:100%;background:#25d366;color:#fff;font-weight:800;font-size:1rem;padding:14px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}
+.checkout-btn:disabled{opacity:.45;cursor:not-allowed}
+.clear-btn{width:100%;text-align:center;font-size:.78rem;color:var(--muted);padding:8px}
+.form-error{color:#b23c3c;font-size:.78rem;font-weight:700;margin-top:6px;display:none}
+
+/* Toast */
+.toast{position:fixed;bottom:110px;right:50%;transform:translateX(50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:999px;font-size:.85rem;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:120;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(50%) translateY(0)}
+
+/* Bottom bar (mobile) */
+.bottom-bar{position:fixed;bottom:0;right:0;left:0;z-index:60;background:var(--card);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.bottom-bar button{width:100%;background:var(--green);color:#fff;font-weight:800;font-size:.95rem;padding:13px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">🌿 زهرة<small>منتجات طبيعية</small></div>
+    <div class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8078" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search" type="search" placeholder="دوّر على منتج..." oninput="onSearch(this.value)">
+    </div>
+    <button class="cart-btn" onclick="toggleCart(true)" aria-label="السلة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.5 12.5h11L21 7H6"/></svg>
+      <span class="cart-count zero" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-card">
+    <img src="photos/zahra-botanical.png" alt="" onerror="this.style.display='none'">
+    <div class="hero-text">
+      <h1>زهرة للمنتجات الطبيعية 🌿</h1>
+      <p>صابون طبيعي وعناية بالبشرة والشعر والجسم — اطلب ويوصلك لباب البيت</p>
+    </div>
+  </div>
+</div>
+
+<nav class="cats"><div class="cats-inner" id="catsBar"></div></nav>
+
+<main id="catalog"></main>
+
+<div class="info">
+  <div class="info-card">
+    🚚 <b>الشحن:</b> الإسكندرية من ٧٠ لـ ٨٠ جنيه حسب المنطقة، وباقي المحافظات من ١٠٠ لـ ١٨٠ جنيه حسب المحافظة. التكلفة النهائية بتتأكد على واتساب.<br>
+    🕙 <b>مواعيد الرد:</b> يوميًا من ١٠ صباحًا لـ ١٠ مساءً.
+  </div>
+</div>
+
+<footer>
+  <div class="links">
+    <a href="https://wa.me/201019558330" target="_blank" rel="noopener">واتساب</a>
+    <a href="https://www.facebook.com/share/1E6hBs1rzg/" target="_blank" rel="noopener">فيسبوك</a>
+  </div>
+  زهرة للمنتجات الطبيعية — الإسكندرية 🌿
+</footer>
+
+<div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
+
+<aside class="drawer" id="drawer" aria-label="سلة المشتريات">
+  <div class="drawer-head">
+    <h2>🛒 سلة المشتريات</h2>
+    <button onclick="toggleCart(false)" aria-label="قفل" style="font-size:1.3rem;color:var(--muted)">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <div class="subtotal"><span>الإجمالي</span><span id="cartTotal">0 جنيه</span></div>
+    <div class="ship-note">+ الشحن بيتحسب حسب منطقتك وبتأكده على واتساب.</div>
+    <div class="field"><label>الاسم *</label><input id="fName" type="text" placeholder="اسمك الكريم"></div>
+    <div class="field"><label>رقم الموبايل *</label><input id="fPhone" type="tel" inputmode="tel" placeholder="01xxxxxxxxx"></div>
+    <div class="field"><label>المحافظة / المدينة</label><input id="fCity" type="text" placeholder="مثال: الإسكندرية - سموحة"></div>
+    <div class="field"><label>العنوان بالتفصيل</label><textarea id="fAddress" rows="2" placeholder="الشارع، رقم العمارة، الدور..."></textarea></div>
+    <div class="field"><label>ملاحظات</label><input id="fNotes" type="text" placeholder="أي تفاصيل تانية عن طلبك"></div>
+    <button class="checkout-btn" id="checkoutBtn" onclick="checkout()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.2 1.4Z"/></svg>
+      إتمام الطلب عبر واتساب
+    </button>
+    <div class="form-error" id="formError">من فضلك اكتب الاسم ورقم الموبايل قبل إتمام الطلب 🙏</div>
+    <button class="clear-btn" onclick="clearCart()">تفريغ السلة</button>
+  </div>
+</aside>
+
+<div class="bottom-bar">
+  <button onclick="toggleCart(true)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.5 12.5h11L21 7H6"/></svg>
+    <span id="barLabel">السلة فاضية</span>
+  </button>
+</div>
+
+<div class="toast" id="toast">اتضاف للسلة ✓</div>
+
+<script>
+const CATEGORIES = [{"label": "الصابون", "items": [{"name": "صابونة جليسرين لبان دكر", "price": 85, "photo": "photos/p/p00.jpg"}, {"name": "صابونة جليسرين شجرة الشاي", "price": 85, "photo": "photos/p/p01.jpg"}, {"name": "صابونة جليسرين الترمس", "price": 85, "photo": "photos/p/p02.jpg"}, {"name": "صابونة جليسرين الشيا وأملاح الهيمالايا", "price": 85, "photo": "photos/p/p03.jpg"}, {"name": "صابونة جليسرين الشوفان بالعسل", "price": 85, "photo": "photos/p/p04.jpg"}, {"name": "صابونة كولد بروسيس شجرة الشاي والفحم", "price": 130, "photo": "photos/p/p05.jpg"}, {"name": "صابونة كولد بروسيس لبان دكر", "price": 130, "photo": "photos/p/p06.jpg"}, {"name": "صابونة كولد بروسيس الزيتون والشيا والكاموميل", "price": 130, "photo": "photos/p/p07.jpg"}, {"name": "صابونة كولد بروسيس حليب الماعز", "price": 130, "photo": "photos/p/p08.jpg"}, {"name": "صابونة الورد الأحمر والطمي", "price": 130, "photo": "photos/p/p09.jpg"}, {"name": "صابونة النيم والفحم وزيت شجرة الشاي", "price": 130, "photo": "photos/p/p10.jpg", "detail": "كولد بروسيس 100 جم"}, {"name": "صابونة لوفا مساج Milkshake", "price": 100, "photo": "photos/p/p11.jpg"}, {"name": "لوفا مساج", "price": 100, "photo": "photos/p/p12.jpg"}]}, {"label": "العناية بالبشرة", "items": [{"name": "ماسك الطمي الوردي", "price": 60, "photo": "photos/p/p13.jpg"}, {"name": "ماسك طحالب بحرية", "price": 60, "photo": "photos/p/p14.jpg"}, {"name": "ماسك النيلة الزرقاء", "price": 65, "photo": "photos/p/p15.jpg"}, {"name": "تونر للوجه", "price": 160, "photo": "photos/p/p16.jpg"}, {"name": "سيروم هيالورونيك أسيد", "price": 240, "photo": "photos/p/p17.jpg"}, {"name": "مرطب الوجه بالكولاجين البحري", "price": 185, "photo": "photos/p/p18.jpg"}, {"name": "Corrective Sunscreen SPF", "price": 180, "photo": "photos/p/p19.jpg", "detail": "واقي شمس يومي"}, {"name": "كحل الإثمد الطبيعي", "price": 150, "photo": "photos/p/p20.jpg", "detail": "25 جم"}, {"name": "سدر مطحون", "price": 200, "photo": "photos/p/p21.jpg"}]}, {"label": "العناية بالشعر", "items": [{"name": "شامبو فري سلفات", "price": 170, "photo": "photos/p/p22.jpg"}, {"name": "شامبو ضد القشرة بالمنتول", "price": 215, "photo": "photos/p/p23.jpg"}, {"name": "كريم الشعر", "price": 140, "photo": "photos/p/p24.jpg"}, {"name": "Hair mist Tropical", "price": 155, "photo": "photos/p/p25.jpg"}, {"name": "Hair mist Very Sexy Now", "price": 155, "photo": "photos/p/p26.jpg"}, {"name": "Hair mist White Musk", "price": 155, "photo": "photos/p/p27.jpg"}, {"name": "Hair balm stick", "price": 85, "photo": "photos/p/p28.jpg", "detail": "بالم للشعر"}]}, {"label": "العناية بالشفايف", "items": [{"name": "ليب بالم بطعم الفراولة", "price": 60, "photo": "photos/p/p29.jpg"}, {"name": "ليب بالم بطعم البطيخ", "price": 60, "photo": "photos/p/p30.jpg"}, {"name": "ليب بالم بطعم الكريز", "price": 60, "photo": "photos/p/p31.jpg"}, {"name": "تنت كريمي Super stay", "price": 85, "photo": "photos/p/p32.jpg"}, {"name": "Lip gloss big brush", "price": 145, "photo": "photos/p/p33.jpg"}, {"name": "Lip scrub", "price": 70, "photo": "photos/p/p34.jpg"}, {"name": "Mini wax حواجب", "price": 85, "photo": "photos/p/p35.jpg"}]}, {"label": "معطرات الجسم", "items": [{"name": "Body mist White Musk", "price": 185, "photo": "photos/p/p36.jpg"}, {"name": "Body mist Scandal", "price": 185, "photo": "photos/p/p37.jpg"}, {"name": "Body mist Victoria Secret", "price": 185, "photo": "photos/p/p38.jpg"}, {"name": "Body mist Rose Vanilla", "price": 185, "photo": "photos/p/p39.jpg"}, {"name": "Body mist Khamrah", "price": 200, "photo": "photos/p/p40.jpg"}, {"name": "Body mist Libre", "price": 200, "photo": "photos/p/p41.jpg"}, {"name": "Body mist رجالي", "price": 185, "photo": "photos/p/p42.jpg"}, {"name": "مخمرية Scandal", "price": 100, "photo": "photos/p/p43.jpg", "detail": "مخمرية معطرة للجسم"}, {"name": "مخمرية Red Flavor", "price": 100, "photo": "photos/p/p44.jpg", "detail": "مخمرية معطرة للجسم"}, {"name": "مخمرية فيكتوريا سيكريت", "price": 100, "photo": "photos/p/p45.jpg"}]}, {"label": "العناية بالجسم", "items": [{"name": "سكراب جسم فيكتوريا سيكريت", "price": 155, "photo": "photos/p/p46.jpg"}, {"name": "سكراب جسم اختيارك المثالي", "price": 155, "photo": "photos/p/p47.jpg"}, {"name": "سكراب جسم Red Flavor", "price": 155, "photo": "photos/p/p48.jpg"}, {"name": "Body lotion You R The One", "price": 190, "photo": "photos/p/p49.jpg"}, {"name": "Body lotion Strawberry", "price": 190, "photo": "photos/p/p50.jpg"}, {"name": "Mini body lotion", "price": 105, "photo": "photos/p/p51.jpg"}, {"name": "Body butter Miss Dior", "price": 205, "photo": "photos/p/p52.jpg"}, {"name": "Body butter Red Flavor", "price": 205, "photo": "photos/p/p53.jpg"}, {"name": "Body butter Khamrah", "price": 205, "photo": "photos/p/p54.jpg"}, {"name": "Body butter In The Stars", "price": 205, "photo": "photos/p/p55.jpg"}, {"name": "Dry oil Classic", "price": 150, "photo": "photos/p/p56.jpg"}, {"name": "Dry oil White Glow", "price": 150, "photo": "photos/p/p57.jpg"}, {"name": "Dry oil Rose Gold (Strawberry)", "price": 150, "photo": "photos/p/p58.jpg"}, {"name": "Dry oil عرض قطعتين", "price": 220, "photo": "photos/p/p59.jpg"}]}, {"label": "ديودرانت", "items": [{"name": "ديودرانت ستيك Musk", "price": 85, "photo": "photos/p/p60.jpg"}, {"name": "ديودرانت ستيك Mermaid", "price": 85, "photo": "photos/p/p61.jpg"}, {"name": "ديودرانت ستيك Red Flavor", "price": 85, "photo": "photos/p/p62.jpg"}, {"name": "ديودرانت رول أون Victoria", "price": 145, "photo": "photos/p/p63.jpg"}, {"name": "ديودرانت رول أون Tropical", "price": 145, "photo": "photos/p/p64.jpg"}, {"name": "ديودرانت رول أون White Musk", "price": 145, "photo": "photos/p/p65.jpg"}, {"name": "ديودرانت كريمي", "price": 100, "photo": "photos/p/p66.jpg"}]}, {"label": "سبا", "items": [{"name": "ليفة مغربي أصلية كسال خلود", "price": 120, "photo": "photos/p/p67.jpg"}, {"name": "صابون مغربي", "price": 90, "photo": "photos/p/p68.jpg"}, {"name": "دلكة سوداني", "price": 100, "photo": "photos/p/p69.jpg"}, {"name": "سويت سوداني بالدلكة والخمرة", "price": 100, "photo": "photos/p/p70.jpg"}, {"name": "مرطب القدم Foot cream", "price": 120, "photo": "photos/p/p71.jpg"}, {"name": "بوكس الحمام المغربي", "price": 740, "photo": "photos/p/p72.jpg"}]}, {"label": "العطور", "items": [{"name": "برفيوم زهرة", "price": 300, "photo": "photos/p/p73.jpg"}, {"name": "تيستر برفيوم 10 ml", "price": 120, "photo": "photos/p/p74.jpg"}, {"name": "تيستر برفيوم", "price": 60, "photo": "photos/p/p75.jpg"}]}, {"label": "باكدجات وسيتات", "items": [{"name": "سيت Rose Vanilla", "price": 440, "photo": "photos/p/p76.jpg"}, {"name": "باكدج glow look clean girl look", "price": 300, "photo": "photos/p/p77.jpg"}, {"name": "باكدج وش منور", "price": 560, "photo": "photos/p/p78.jpg", "detail": "للعناية بالبشرة"}, {"name": "باكدج عودة النعومة", "price": 550, "photo": "photos/p/p79.jpg"}]}];
+const WA_NUMBER = "201019558330";
+
+// Flatten products with ids
+const PRODUCTS = [];
+CATEGORIES.forEach((c, ci) => c.items.forEach(p => PRODUCTS.push({...p, id: PRODUCTS.length, cat: c.label, catIndex: ci})));
+
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem('zahra-cart') || '{}'); } catch(e) { cart = {}; }
+let activeCat = -1;
+let query = '';
+
+function fmt(n){ return n.toLocaleString('en-EG') + ' جنيه'; }
+function saveCart(){ localStorage.setItem('zahra-cart', JSON.stringify(cart)); }
+function cartCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function cartTotal(){ return Object.entries(cart).reduce((a,[id,q])=>a + PRODUCTS[id].price*q, 0); }
+
+function renderCats(){
+  const bar = document.getElementById('catsBar');
+  let html = `<button class="chip ${activeCat===-1?'active':''}" onclick="setCat(-1)">الكل</button>`;
+  CATEGORIES.forEach((c,i)=>{ html += `<button class="chip ${activeCat===i?'active':''}" onclick="setCat(${i})">${c.label}</button>`; });
+  bar.innerHTML = html;
+}
+function setCat(i){ activeCat = i; renderCats(); renderGrid(); }
+function onSearch(v){ query = v.trim(); renderGrid(); }
+
+function cardHtml(p){
+  const q = cart[p.id] || 0;
+  const action = q === 0
+    ? `<button class="add-btn" onclick="addToCart(${p.id})">+ أضف للسلة</button>`
+    : `<div class="stepper"><button onclick="changeQty(${p.id},1)">+</button><span>${q}</span><button onclick="changeQty(${p.id},-1)">−</button></div>`;
+  return `<div class="card">
+    <div class="card-img"><img src="${p.photo}" alt="${p.name}" loading="lazy"></div>
+    <div class="card-body">
+      <div class="card-name">${p.name}</div>
+      ${p.detail ? `<div class="card-detail">${p.detail}</div>` : ''}
+      <div class="card-foot"><span class="price">${fmt(p.price)}</span>${action}</div>
+    </div>
+  </div>`;
+}
+
+function renderGrid(){
+  const main = document.getElementById('catalog');
+  const q = query;
+  let html = '';
+  CATEGORIES.forEach((c, ci) => {
+    if (activeCat !== -1 && activeCat !== ci) return;
+    let items = c.items.map(p => PRODUCTS.find(x => x.name === p.name && x.catIndex === ci));
+    if (q) items = items.filter(p => (p.name + ' ' + (p.detail||'') + ' ' + c.label).includes(q));
+    if (!items.length) return;
+    html += `<h2 class="cat-title">${c.label}</h2><div class="grid">${items.map(cardHtml).join('')}</div>`;
+  });
+  main.innerHTML = html || `<div class="empty-msg">مفيش منتجات مطابقة لبحثك 🌿</div>`;
+}
+
+function syncCartUI(){
+  const n = cartCount();
+  const badge = document.getElementById('cartCount');
+  badge.textContent = n;
+  badge.classList.toggle('zero', n === 0);
+  document.getElementById('barLabel').textContent = n === 0 ? 'السلة فاضية' : `السلة (${n}) — ${fmt(cartTotal())}`;
+  document.getElementById('cartTotal').textContent = fmt(cartTotal());
+  document.getElementById('checkoutBtn').disabled = n === 0;
+  renderCartItems();
+}
+
+function addToCart(id){
+  cart[id] = (cart[id]||0) + 1;
+  saveCart(); syncCartUI(); renderGrid();
+  const t = document.getElementById('toast');
+  t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 1200);
+}
+function changeQty(id, d){
+  cart[id] = (cart[id]||0) + d;
+  if (cart[id] <= 0) delete cart[id];
+  saveCart(); syncCartUI(); renderGrid();
+}
+function clearCart(){ cart = {}; saveCart(); syncCartUI(); renderGrid(); }
+
+function renderCartItems(){
+  const body = document.getElementById('cartBody');
+  const ids = Object.keys(cart);
+  if (!ids.length){ body.innerHTML = `<div class="empty-msg">السلة فاضية، اختار اللي يعجبك من المتجر 🌿</div>`; return; }
+  body.innerHTML = ids.map(id => {
+    const p = PRODUCTS[id], q = cart[id];
+    return `<div class="cart-item">
+      <img src="${p.photo}" alt="${p.name}">
+      <div class="ci-info">
+        <div class="ci-name">${p.name}</div>
+        <div class="ci-price">${fmt(p.price)} للقطعة</div>
+        <div class="stepper" style="margin-top:6px"><button onclick="changeQty(${p.id},1)">+</button><span>${q}</span><button onclick="changeQty(${p.id},-1)">−</button></div>
+      </div>
+      <div class="ci-side">
+        <span class="ci-total">${fmt(p.price*q)}</span>
+        <button class="ci-remove" onclick="removeItem(${p.id})">حذف</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function removeItem(id){ delete cart[id]; saveCart(); syncCartUI(); renderGrid(); }
+
+function toggleCart(open){
+  document.getElementById('drawer').classList.toggle('open', open);
+  document.getElementById('overlay').classList.toggle('open', open);
+  if (open) renderCartItems();
+}
+
+function checkout(){
+  const name = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const city = document.getElementById('fCity').value.trim();
+  const address = document.getElementById('fAddress').value.trim();
+  const notes = document.getElementById('fNotes').value.trim();
+  const err = document.getElementById('formError');
+  if (!name || !phone){ err.style.display = 'block'; return; }
+  err.style.display = 'none';
+
+  const lines = Object.keys(cart).map(id => {
+    const p = PRODUCTS[id], q = cart[id];
+    return `• ${p.name} × ${q} = ${p.price*q} جنيه`;
+  });
+  let msg = `أهلاً زهرة 🌿 عايز أطلب من المتجر:\n\n${lines.join('\n')}\n\nالإجمالي: ${cartTotal()} جنيه (+ الشحن)
+
+الاسم: ${name}\nالموبايل: ${phone}`;
+  if (city) msg += `\nالمحافظة/المدينة: ${city}`;
+  if (address) msg += `\nالعنوان: ${address}`;
+  if (notes) msg += `\nملاحظات: ${notes}`;
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+renderCats(); renderGrid(); syncCartUI();
+</script>
+</body>
+</html>
