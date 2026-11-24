@@ -1,0 +1,17 @@
+name = "zahra-store"
+compatibility_date = "2026-11-01"
+main = "worker.js"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+
+# KV namespace for order records - create once in the Cloudflare dashboard
+# (Workers & Pages > zahra-store > Bindings > KV) and put its ID here.
+[[kv_namespaces]]
+binding = "ORDERS"
+id = "dab5f4bf412640da9bbb94ce9a0f67df"
+
+# Secret download key for the orders CSV: set with
+#   npx wrangler secret put ORDER_KEY
+# or in the dashboard (Settings > Variables and Secrets).
