@@ -17,8 +17,6 @@ async function recordOrder(request, env) {
     name, phone,
     phone2: String(o.phone2 || ''),
     city: String(o.city || ''), address: String(o.address || ''), notes: String(o.notes || ''),
-    items: Array.isArray(o.items) ? o.items.map(i => ({ name: String(i.name || ''), qty: Number(i.qty) || 0, price: Number(i.price) || 0 })) : [],
-    total: Number(o.total) || 0,
     ts: o.ts || new Date().toISOString()
   };
   const id = Date.now() + '-' + Math.random().toString(36).slice(2, 8);
@@ -31,7 +29,7 @@ async function downloadCsv(url, env) {
     return new Response('not found', { status: 404 });
   }
   const list = await env.ORDERS.list();
-  const rows = [['التاريخ', 'الاسم', 'الموبايل', 'موبايل إضافي', 'المحافظة/المدينة', 'العنوان', 'ملاحظات', 'الطلب', 'الإجمالي']];
+  const rows = [['التاريخ', 'الاسم', 'الموبايل', 'موبايل إضافي', 'المحافظة/المدينة', 'العنوان', 'ملاحظات']];
   const recs = [];
   for (const k of list.keys) {
     const v = await env.ORDERS.get(k.name, 'json');
@@ -39,8 +37,7 @@ async function downloadCsv(url, env) {
   }
   recs.sort((a, b) => String(a.ts).localeCompare(String(b.ts)));
   for (const r of recs) {
-    const items = (r.items || []).map(i => `${i.name} × ${i.qty}`).join(' + ');
-    rows.push([r.ts, r.name, r.phone, r.phone2 || '', r.city, r.address, r.notes, items, r.total]);
+    rows.push([r.ts, r.name, r.phone, r.phone2 || '', r.city, r.address, r.notes]);
   }
   const csv = '\uFEFF' + rows.map(r => r.map(csvCell).join(',')).join('\n');
   return new Response(csv, {
